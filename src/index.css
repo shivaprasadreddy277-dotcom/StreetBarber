@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800;900&family=DM+Sans:wght@300;400;500;700&family=Caveat:wght@400;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* Warm Cream + Navy + Orange + Mustard theme */
+  --color-cream: #FFF7E8;
+  --color-orange: #F47B35;
+  --color-navy: #17324D;
+  --color-mustard: #F4C95D;
+  --color-white: #FFFFFF;
+
+  /* Backward compatibility mappings to adapt dashboards and booking engine seamlessly */
+  --color-barberDark-950: #FFF7E8;
+  /* warm cream background */
+  --color-barberDark-900: #FFFDF9;
+  /* lighter cream panel background */
+  --color-barberDark-800: #FFFFFF;
+  /* white panels */
+  --color-barberDark-700: #F4EAD4;
+  /* borders */
+  --color-barberDark-600: #4B6E94;
+  /* secondary muted text */
+
+  --color-electric-500: #F47B35;
+  /* Orange accents for CTAs */
+  --color-electric-400: #FA9A60;
+  --color-electric-300: #FDBA91;
+
+  --color-neonPurple-500: #F4C95D;
+  /* Mustard yellow decorative accents */
+  --color-neonPurple-400: #F8DA8C;
+  --color-neonPurple-300: #FCEABD;
+
+  --color-coral-500: #17324D;
+  /* Deep Navy for dark headers/text panels */
+  --color-coral-400: #294766;
+  --color-coral-300: #4B6E94;
+
+  --font-sans: "DM Sans", "Inter", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-handwritten: "Caveat", cursive;
+
+  --shadow-neon-blue: 0 4px 14px rgba(244, 123, 53, 0.25);
+  --shadow-neon-purple: 0 4px 14px rgba(244, 201, 93, 0.2);
+  --shadow-neon-coral: 0 4px 14px rgba(23, 50, 77, 0.1);
+}
+
+@utility glass-panel {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(23, 50, 77, 0.08);
+}
+
+@utility text-gradient-orange-charcoal {
+  background: linear-gradient(135deg, #F47B35 0%, #17324D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility text-gradient-purple-blue {
+  background: linear-gradient(135deg, #F47B35 0%, #F4C95D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility text-gradient-orange-purple {
+  background: linear-gradient(135deg, #F47B35 0%, #17324D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility border-neon-glow-hover {
+  transition: all 0.3s ease;
+  border-width: 2px;
+  border-color: rgba(23, 50, 77, 0.08);
+
+  &:hover {
+    border-color: #F47B35;
+    box-shadow: 0 8px 30px rgba(244, 123, 53, 0.12);
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-navy font-sans antialiased selection:bg-orange selection:text-white overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-navy font-display font-bold;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF7E8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F4C95D;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F47B35;
+}
+
+/* Skeletons */
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Doodle Animations */
+@keyframes float-slow {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(var(--doodle-rot-base, 0deg));
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(calc(var(--doodle-rot-base, 0deg) + 3deg));
+  }
+}
+
+@keyframes float-medium {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(var(--doodle-rot-base, 0deg));
+  }
+
+  50% {
+    transform: translateY(-5px) rotate(calc(var(--doodle-rot-base, 0deg) - 3deg));
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 4s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse-slow {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 80s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 60s linear infinite;
+}

@@ -1,0 +1,45 @@
+# Street Barber Platform - Tasks
+
+- [x] **Phase 1: Foundation & Database Setup**
+  - [x] Generate database schema SQL script (`supabase_schema.sql`)
+  - [x] Initialize React project with Vite
+  - [x] Set up Tailwind CSS configuration and theme variables
+  - [x] Create folder structure and setup router
+  - [x] Write Supabase connection helper (`supabaseClient.js`)
+  - [x] Implement AuthContext for role-based sessions (`owner` vs `staff`)
+  - [x] Create reusable common UI components (Navbar, Footer, Toast, Dialog, Loading skeletons)
+- [x] **Phase 2: Public Landing Page**
+  - [x] Build landing sections (Hero, Popular Services, Our Barbers, Live Availability, Gallery, Contact)
+  - [x] Implement floating WhatsApp action button
+  - [x] Fetch live data dynamically from database tables
+- [x] **Phase 3: Booking Engine**
+  - [x] Build the multi-step booking client flow (Service -> Barber -> Date -> Time -> Info)
+  - [x] Code dynamic slot calculation logic filtering out barber bookings & unavailable blocks
+  - [x] Test client-side scheduling validation
+  - [x] Implement transaction-safe double-booking prevention using Supabase PostgreSQL RPC function
+  - [x] Build confirmation screen displaying the human-readable booking reference
+- [x] **Phase 4: Staff System**
+  - [x] Create login panel and protect admin/staff routing
+  - [x] Build the Staff Dashboard displaying today's appointments in chronological order
+  - [x] Implement quick status buttons (Confirm, In Progress, Complete, No Show, Cancel)
+  - [x] Code atomic assignment button for unassigned bookings
+  - [x] Add staff-specific schedule/availability overrides toggles
+- [x] **Phase 5: Owner Administration**
+  - [x] Create Services CRUD with active/deactive soft-deletion settings
+  - [x] Build Staff Management panel to register new staff, assign roles, edit details
+  - [x] Build appointments list with date/barber/status filters and customer search
+  - [x] Develop the visual interactive Calendar component (Day and Week views) -- *Integrated in appointments & stats workflows*
+  - [x] Implement customer history tracker counting visits and preferences -- *Integrated in stats and appointments registers*
+  - [x] Build Gallery CRUD with Supabase Storage image uploads
+  - [x] Create Shop settings forms for coordinates, phone contacts, WhatsApp, hours, and booking toggle
+- [x] **Phase 6: Realtime Updates & Notifications**
+  - [x] Implement NotificationContext using Supabase Realtime subscriptions
+  - [x] Build notification bell dropdown in header with unread indicators
+  - [x] Log notifications for new bookings in realtime
+  - [x] Document WhatsApp automated trigger logic using Supabase Webhooks / Edge Functions
+- [x] **Phase 7: Review & Verification**
+  - [x] Verify RLS policies block unauthorized read/write attempts
+  - [x] Perform double-booking race condition simulations
+  - [x] Optimize loading skeletons, error states, and responsive styling
+  - [x] Write comprehensive README, environment configurations, and deployment guide
+  - [x] Create walkthrough.md summary with screenshots/visual guide
